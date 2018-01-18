@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 102.0, 79.0, 1530.0, 849.0 ],
+		"rect" : [ 101.0, 79.0, 1530.0, 849.0 ],
 		"bgcolor" : [ 0.221674, 0.25681, 0.29304, 1.0 ],
 		"editing_bgcolor" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 		"bglocked" : 0,
@@ -39,6 +39,20 @@
 		"style" : "velvet",
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-22",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 1215.0, 38.0, 239.0, 33.0 ],
+					"presentation_rect" : [ 1213.0, 38.0, 0.0, 0.0 ],
+					"style" : "",
+					"text" : "shades of red work best for dark-field illumination"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"color" : [ 0.786675, 0.801885, 0.845022, 1.0 ],
 					"id" : "obj-88",
@@ -5275,7 +5289,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-10",
-					"items" : [ "0xFFFFFF", ",", "0xDFDFDF", ",", "0xBFBFBF", ",", "0x9F9F9F", ",", "0x7F7F7F", ",", "0x5F5F5F", ",", "0x3F3F3F", ",", "0x1F1F1F" ],
+					"items" : [ "0xFF0000", ",", "0xE50000", ",", "0xCC0000", ",", "0xB20000", ",", "0x990000", ",", "0x7F0000", ",", "0x660000", ",", "0x4C0000" ],
 					"labelclick" : 1,
 					"maxclass" : "umenu",
 					"numinlets" : 1,
@@ -18083,8 +18097,8 @@
 						"styles" : [ 							{
 								"name" : "newobjYellow-1",
 								"default" : 								{
-									"accentcolor" : [ 0.82517, 0.78181, 0.059545, 1.0 ],
-									"fontsize" : [ 12.059008 ]
+									"fontsize" : [ 12.059008 ],
+									"accentcolor" : [ 0.82517, 0.78181, 0.059545, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -26627,19 +26641,19 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-5::obj-3" : [ "Regen[1]", "Regen", 0 ],
-			"obj-5::obj-62" : [ "Dry[1]", "Dry", 0 ],
+			"obj-10" : [ "umenu[4]", "umenu", 0 ],
 			"obj-13" : [ "umenu[2]", "umenu", 0 ],
-			"obj-5::obj-64" : [ "Tail[1]", "Tail", 0 ],
-			"obj-5::obj-66" : [ "Time[1]", "Time", 0 ],
-			"obj-5::obj-65" : [ "Spread[1]", "Spread", 0 ],
-			"obj-5::obj-63" : [ "Early[1]", "Early", 0 ],
-			"obj-51" : [ "umenu[1]", "umenu", 0 ],
-			"obj-5::obj-60" : [ "Damp[1]", "Damp", 0 ],
-			"obj-39" : [ "umenu[3]", "umenu", 0 ],
-			"obj-5::obj-23" : [ "bypass[1]", "bypass", 0 ],
 			"obj-5::obj-28" : [ "Size[1]", "Size", 0 ],
-			"obj-10" : [ "umenu[4]", "umenu", 0 ]
+			"obj-5::obj-64" : [ "Tail[1]", "Tail", 0 ],
+			"obj-5::obj-23" : [ "bypass[1]", "bypass", 0 ],
+			"obj-39" : [ "umenu[3]", "umenu", 0 ],
+			"obj-5::obj-60" : [ "Damp[1]", "Damp", 0 ],
+			"obj-5::obj-3" : [ "Regen[1]", "Regen", 0 ],
+			"obj-5::obj-63" : [ "Early[1]", "Early", 0 ],
+			"obj-5::obj-66" : [ "Time[1]", "Time", 0 ],
+			"obj-51" : [ "umenu[1]", "umenu", 0 ],
+			"obj-5::obj-62" : [ "Dry[1]", "Dry", 0 ],
+			"obj-5::obj-65" : [ "Spread[1]", "Spread", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{

@@ -494,7 +494,9 @@ static const byte binLightPins[NUM_BIN_LIGHTS] = {25,26,27,28,29,30,31,32}; // p
 // we are basically creating an HSV gradient here
 #define NUM_DOTSTAR_COLORS 8
 // list of colors (solid colors fading to dark)
-const uint32_t dotstarColorList[NUM_DOTSTAR_COLORS] = {0xFFFFFF, 0xDFDFDF, 0xBFBFBF, 0x9F9F9F, 0x7F7F7F, 0x5F5F5F, 0x3F3F3F, 0x1F1F1F};
+//const uint32_t dotstarColorList[NUM_DOTSTAR_COLORS] = {0xFFFFFF, 0xDFDFDF, 0xBFBFBF, 0x9F9F9F, 0x7F7F7F, 0x5F5F5F, 0x3F3F3F, 0x1F1F1F};
+// red worksbetter for dark-field illumination
+const uint32_t dotstarColorList[NUM_DOTSTAR_COLORS] = {0xFF0000, 0xE50000, 0xCC0000, 0xB20000, 0x990000, 0x7F0000, 0x660000, 0x4C0000};
 
 // Here's how to control the LEDs from any two pins:
 // The below code is for software SPI on pins 8 & 9
