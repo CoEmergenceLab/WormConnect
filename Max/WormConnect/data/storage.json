@@ -1,0 +1,78 @@
+{
+	"pattrstorage" : 	{
+		"name" : "storage",
+		"slots" : 		{
+			"1" : 			{
+				"id" : 1,
+				"data" : 				{
+					"u301001906" : [  ],
+					"bp.Cloud::CV2" : [ 100.0 ],
+					"bp.Cloud::CV3" : [ 37.0 ],
+					"bp.Cloud::Fatness" : [ 4.530013 ],
+					"bp.Cloud::Freq" : [ 216.19405 ],
+					"bp.Cloud::FreqMode" : [ 0.0 ],
+					"bp.Cloud::Linear" : [ 68.0 ],
+					"bp.Cloud::Mute" : [ 0.0 ],
+					"bp.Cloud::Offset[2]" : [ -3.30212 ],
+					"bp.Cloud::WaveformCloud" : [ 2.0 ],
+					"CombFilter::CV2" : [ 81.102362 ],
+					"CombFilter::Feedback" : [ 82.290057 ],
+					"CombFilter::Freq" : [ 6.0 ],
+					"CombFilter::FreqMode" : [ 0.0 ],
+					"CombFilter::Invert[1]" : [ 0.0 ],
+					"CombFilter::Mix" : [ 80.314961 ],
+					"CombFilter::Offset[2]" : [ -64.0 ],
+					"CombFilter::bypass" : [ 0.0 ],
+					"bp.DFLFO::Delay" : [ 36.469588 ],
+					"bp.DFLFO::Fade" : [ 1.3594 ],
+					"bp.DFLFO::FadeInOut" : [ 0.0 ],
+					"bp.DFLFO::Frequency" : [ 0.079493 ],
+					"bp.DFLFO::Mute" : [ 0.0 ],
+					"bp.DFLFO::SpectraShape" : [ 0.0 ],
+					"bp.DFLFO::Sync" : [ 0.0 ],
+					"bp.DFLFO::SyncPhase" : [ 0.0 ],
+					"bp.Poisson::Chaos" : [ 57.874016 ],
+					"bp.Poisson::DurationCV" : [ 0.0 ],
+					"bp.Poisson::GateWidth" : [ 57.874016 ],
+					"bp.Poisson::InvertRateCV" : [ 0.0 ],
+					"bp.Poisson::LimitDuration" : [ 0.0 ],
+					"bp.Poisson::LongestDuration" : [ 100.0 ],
+					"bp.Poisson::Mute[1]" : [ 0.0 ],
+					"bp.Poisson::NextIn" : [ 1698.08443 ],
+					"bp.Poisson::Rate" : [ 1996.809607 ],
+					"bp.Poisson::Subdivide" : [ 1.0 ],
+					"bp.Poisson::Triggered" : [ 0.0 ],
+					"bp.Morphing Sequencer::ClockSelect" : [ 1.0 ],
+					"bp.Morphing Sequencer::CurrentStep" : [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0 ],
+					"bp.Morphing Sequencer::EditMode" : [ 0.0 ],
+					"bp.Morphing Sequencer::LoopEnd" : [ 16.0 ],
+					"bp.Morphing Sequencer::LoopStart" : [ 4.0 ],
+					"bp.Morphing Sequencer::Pulse" : [ 1.0 ],
+					"bp.Morphing Sequencer::Reset" : [ 0.0 ],
+					"bp.Morphing Sequencer::Sequence" : [ 0.109162, 0.056158, 0.170387, 0.309134, 0.280648, 0.185729, 0.133681, 0.055059, 0.112317, 0.099075, 0.266262, 0.249498, 0.123548, 0.104096, 0.022463, 0.0 ],
+					"bp.Morphing Sequencer::Sync" : [ 0.0 ],
+					"bp.Morphing Sequencer::max pulse[1]" : [ 4.0 ],
+					"bp.Morphing Sequencer::mute" : [ 0.0 ],
+					"bp.Morphing Sequencer::swing amount" : [ 0.0 ],
+					"bp.Morphing Sequencer::swing switch" : [ 0.0 ],
+					"bp.Morphing Sequencer::harmonic_management::b_state" : [ 0.142857, 0.0, 0.204082, 0.387755, 0.22449, 0.163265, 0.122449, 0.122449, 0.0, 0.220339, 0.367347, 0.305085, 0.0, 0.081633, 0.0, 0.0 ],
+					"bp.Morphing Sequencer::harmonic_management::a_state" : [ 0.081633, 0.102041, 0.142857, 0.244898, 0.326531, 0.204082, 0.142857, 0.0, 0.204082, 0.0, 0.183673, 0.204082, 0.22449, 0.122449, 0.040816, 0.0 ],
+					"bpGLLFO::Bias" : [ 0.0 ],
+					"bpGLLFO::Follow" : [ 0.0 ],
+					"bpGLLFO::Frequency" : [ 0.165917 ],
+					"bpGLLFO::Mute" : [ 0.0 ],
+					"bpGLLFO::Phase" : [ 0.0 ],
+					"bpGLLFO::Pulse" : [ "off" ],
+					"bpGLLFO::Scale" : [ 14.96063 ],
+					"bpGLLFO::Shape" : [ "sine" ],
+					"bpGLLFO::domain" : [ 6027.109941 ],
+					"bpGLLFO::live.text" : [ 0.0 ]
+				}
+
+			}
+
+		}
+
+	}
+
+}
