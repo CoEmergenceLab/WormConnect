@@ -7,8 +7,8 @@
 // Send a "-" to pull that size bolus.
 
 /* -- Constants -- */
-#define SYRINGE_VOLUME_ML 10.0
-#define SYRINGE_BARREL_LENGTH_MM 60.0
+#define SYRINGE_VOLUME_ML 30.0
+#define SYRINGE_BARREL_LENGTH_MM 80.0
 
 #define THREADED_ROD_PITCH 1.25
 #define STEPS_PER_REVOLUTION 200.0
