@@ -27,13 +27,14 @@ static const int motorStepPin = 3;
 enum{PUSH,PULL}; //syringe movement direction
 
 //static const int mLBolusStepsLength = 9;
-static const float mLBolusSteps[9] = {0.001, 0.005, 0.010, 0.050, 0.100, 0.500, 1.000, 5.000, 10.000};
+//static const float mLBolusSteps[9] = {0.001, 0.005, 0.010, 0.050, 0.100, 0.500, 1.000, 5.000, 10.000};
+static const float mLBolusSteps[9] = {0.010, 0.025, 0.050, 0.100, 0.250, 0.500, 1.000, 5.000, 10.000};
 
 /* -- Default Parameters -- */
-float mLBolus = 0.010; //default bolus size (in mL)
-float mLBigBolus = 0.100; //default large bolus size (in mL)
+float mLBolus = 0.050; //default bolus size (in mL)
+float mLBigBolus = 0.500; //default large bolus size (in mL)
 float mLUsed = 0.0;
-int mLBolusStepIdx = 1; //0.005 mL increments at first
+int mLBolusStepIdx = 1; //0.025 mL increments at first
 float mLBolusStep = mLBolusSteps[mLBolusStepIdx];
 
 long stepperPos = 0; //in microsteps
