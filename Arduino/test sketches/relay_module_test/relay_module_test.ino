@@ -47,29 +47,113 @@ void setup() {
 
 
 void loop() {
-  digitalWrite(Relay_1, RELAY_ON); // set the Relay ON
-  digitalWrite(Relay_2, RELAY_ON); // set the Relay ON
-  digitalWrite(Relay_3, RELAY_ON); // set the Relay ON
-  digitalWrite(Relay_4, RELAY_ON); // set the Relay ON
-  delay(50); // wait
-  digitalWrite(Relay_1, RELAY_OFF); // set the Relay OFF
-  digitalWrite(Relay_2, RELAY_OFF); // set the Relay OFF
-  digitalWrite(Relay_3, RELAY_OFF); // set the Relay OFF
-  digitalWrite(Relay_4, RELAY_OFF); // set the Relay OFF
-  delay(1000);
+  // === Lets blink the first 5 prime numbers === //
+  // note: order is right-to-left
 
-  digitalWrite(Relay_5, RELAY_ON); // set the Relay ON
-  digitalWrite(Relay_6, RELAY_ON); // set the Relay ON
-  digitalWrite(Relay_7, RELAY_ON); // set the Relay ON
-  digitalWrite(Relay_8, RELAY_ON); // set the Relay ON
-  delay(50); // wait
-  digitalWrite(Relay_5, RELAY_OFF); // set the Relay OFF
-  digitalWrite(Relay_6, RELAY_OFF); // set the Relay OFF
-  digitalWrite(Relay_7, RELAY_OFF); // set the Relay OFF
+  // 2 (00000010)
   digitalWrite(Relay_8, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_7, RELAY_ON);  // set the Relay ON
+  digitalWrite(Relay_6, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_5, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_4, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_3, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_2, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_1, RELAY_OFF); // set the Relay OFF
+  delay(50); // wait (blink)
+  digitalWrite(Relay_8, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_7, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_6, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_5, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_4, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_3, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_2, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_1, RELAY_OFF); // set the Relay OFF
+    
   delay(1000);
 
+  // 3 (00000011)
+  digitalWrite(Relay_8, RELAY_ON);  // set the Relay ON
+  digitalWrite(Relay_7, RELAY_ON);  // set the Relay ON
+  digitalWrite(Relay_6, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_5, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_4, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_3, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_2, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_1, RELAY_OFF); // set the Relay OFF
+  delay(50); // wait (blink)
+  digitalWrite(Relay_8, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_7, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_6, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_5, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_4, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_3, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_2, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_1, RELAY_OFF); // set the Relay OFF
+  
+  delay(1000);
 
+  // 5 (00000101)
+  digitalWrite(Relay_8, RELAY_ON);  // set the Relay ON
+  digitalWrite(Relay_7, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_6, RELAY_ON);  // set the Relay ON
+  digitalWrite(Relay_5, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_4, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_3, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_2, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_1, RELAY_OFF); // set the Relay OFF
+  delay(50); // wait (blink)
+  digitalWrite(Relay_8, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_7, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_6, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_5, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_4, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_3, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_2, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_1, RELAY_OFF); // set the Relay OFF
+
+  delay(1000);
+
+  // 7 (00000111)
+  digitalWrite(Relay_8, RELAY_ON);  // set the Relay ON
+  digitalWrite(Relay_7, RELAY_ON);  // set the Relay ON
+  digitalWrite(Relay_6, RELAY_ON);  // set the Relay ON
+  digitalWrite(Relay_5, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_4, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_3, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_2, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_1, RELAY_OFF); // set the Relay OFF
+  delay(50); // wait (blink)
+  digitalWrite(Relay_8, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_7, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_6, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_5, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_4, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_3, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_2, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_1, RELAY_OFF); // set the Relay OFF
+
+  delay(1000);
+
+  // 11 (00001011)
+  digitalWrite(Relay_8, RELAY_ON);  // set the Relay ON
+  digitalWrite(Relay_7, RELAY_ON);  // set the Relay ON
+  digitalWrite(Relay_6, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_5, RELAY_ON);  // set the Relay ON
+  digitalWrite(Relay_4, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_3, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_2, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_1, RELAY_OFF); // set the Relay OFF
+  delay(50); // wait (blink)
+  digitalWrite(Relay_8, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_7, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_6, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_5, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_4, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_3, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_2, RELAY_OFF); // set the Relay OFF
+  digitalWrite(Relay_1, RELAY_OFF); // set the Relay OFF
+
+  delay(1000);
   
 ////---( Turn all 8 relays ON in sequence)---
 //  digitalWrite(Relay_1, RELAY_ON);// set the Relay ON
