@@ -16,8 +16,10 @@
 #define FAN1_OUTPUT_PIN 12               // pwm output pin for fan
 
 // === PID === //
-#define PID0_OUTPUT_PIN 4                // pwm output pin for peltier/pid controller
-#define PID1_OUTPUT_PIN 13               // pwm output pin for peltier/pid controller
+#define PID0_OUTPUT_PIN 4                // pwm output pin for peltier/pid controller (980 Hz)
+#define PID1_OUTPUT_PIN 13               // pwm output pin for peltier/pid controller (980 Hz)
+
+// Note: pins 13 and 4 on the Arduino Mega run at 980Hz (instead of the usual 490Hz). We will use these pins for the Peltier
 
 
 // ========== Class representing a Peltier/TEC module ========== //
