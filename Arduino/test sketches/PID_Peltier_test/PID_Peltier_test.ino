@@ -1,5 +1,5 @@
-#include <PID_v1.h>
 
+ #include <PID_v1.h>
 
 // ========== PID CONTROLLER FOR TWO PELTIER MODULES (labelled peltier0 & peltier1) ========== //
 
@@ -58,7 +58,7 @@ class Peltier {
   // when we're near Setpoint and more aggressive Tuning
   // Parameters when we're farther away.
   double aggKp=3.9, aggKi=5, aggKd=1;
-  double consKp=2, consKi=4, consKd=.75;
+  double consKp=2, consKi=4, consKd=.75; //THESE HAVE BEEN CHANGED
   PID *pid;                                      // pointer to PID controller object
 
   public:
