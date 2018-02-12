@@ -324,14 +324,16 @@ class Peltier {
 
 // === PELTIER OBJECTS === //
 // initialize peltier objects
-// Peltier 0 is the one closer to the participant - thus it is made warmer when participant is connected to system & colder when not
-// Peltier 1 is further away - thus it is made colder when particiapant is connected to system & warmer when not
+// Peltier 0 is the one to the left of participant 
+// Peltier 1 is to the right of participant
+// one peltier is is made warmer when participant is connected to system & colder when not
+// they toggle back & forth - after worms move to the warm side - that side becomes cold when the next particpant connects to the system
 // (Also food will be dropped (via syringe pumps) on whichever side is being made warmer)
-Peltier peltier0(PID0_OUTPUT_PIN, TEMP0_SENSORPIN, TEMP0_SUPPLYPIN, FAN0_OUTPUT_PIN, TEMP_LO);
-Peltier peltier1(PID1_OUTPUT_PIN, TEMP1_SENSORPIN, TEMP1_SUPPLYPIN, FAN1_OUTPUT_PIN, TEMP_HI);
+Peltier peltier0(PID0_OUTPUT_PIN, TEMP0_SENSORPIN, TEMP0_SUPPLYPIN, FAN0_OUTPUT_PIN, TEMP_LO); // left side - cold by default
+Peltier peltier1(PID1_OUTPUT_PIN, TEMP1_SENSORPIN, TEMP1_SUPPLYPIN, FAN1_OUTPUT_PIN, TEMP_HI); // right side - warm by default
 
 // --- Peltier serial communication --- //
-void sendPeltierSerial(uint8_t id, int temp) {
+void sendPeltierSerial(uint8_t id, double temp) {
   Serial.print('t');
   Serial.print('e');
   Serial.print('c');
@@ -359,12 +361,17 @@ int beatPeriod = 1000;
 // The main loop has different operating states as defined here:
 byte heartMode = 0;
 byte lastHeartMode = 99;
-bool wormTravel = false;      // when worms travel all the way across toward the participant
+bool wormTravel = false;      // when worms travel all the way across toward one end
 #define WAITING 0
 #define CONNECTED 1
 #define PLAY 2
 #define MEDITATE 3
 #define DISCONNECTED 4
+
+// direction worms are traveling - basically which peltier is cold and which is warm
+byte wormDir = 0;
+#define LEFT_RIGHT 0
+#define RIGHT_LEFT 1
 
 // Is the detected heartbeat signal good or bad?
 #define BEAT_GOOD 0
@@ -463,6 +470,7 @@ void sendHRSerial(uint8_t mode) {
   Serial.println(mode);
 }
 
+// --- Syringe pump serial communication --- //
 void sendSPSerial(uint8_t whichPump) {
   // which syringe pump to drop food from
   Serial.print('s');
@@ -681,16 +689,6 @@ void loop() {
       // store the contact time so we can set a timer to control
       // how long we wait for a good heartbeat
       contStartTime = loopMillis; //get time at start of contact
-
-      // --- Peltiers --- //
-      // when returned to waiting mode set peltier target temps back to their defaults
-      if(peltier0.getTargetTemp() != TEMP_LO)
-        peltier0.setTargetTemp(TEMP_LO);
-      if(peltier1.getTargetTemp() != TEMP_HI) {
-        peltier1.setTargetTemp(TEMP_HI);
-        // and drop the food (via syringe pump)
-        sendSPSerial(1);
-      }
       break;
 
     case CONNECTED:
@@ -701,23 +699,27 @@ void loop() {
         // debug and status message for a false beat...
         //Serial.print(F("False beat "));
       }
-      // Wait here for a while for a steady heart beat or a time-out of about 10s
+      // Wait here for a while for a steady heartbeat or a time-out of about 10 secs
       if ((millis() > (contStartTime + 12*beatPeriod)) || (goodBPM == 1)) {
         heartMode = PLAY;
+        
+        // --- Peltiers & Syringe Pumps --- //
+        // set the temp of the peltiers based upon the direction we want the worms to move
+        // and drop food via the approriate syringe pump
+        if(wormDir == LEFT_RIGHT) {
+          peltier0.setTargetTemp(TEMP_LO);
+          peltier1.setTargetTemp(TEMP_HI);
+          sendSPSerial(1);
+        } else {
+          peltier0.setTargetTemp(TEMP_HI);
+          peltier1.setTargetTemp(TEMP_LO);
+          sendSPSerial(0);
+        }
+          
         //Serial.println("");
       }
       // If contact is lost go back to waiting
       if (digitalRead(CONTACT_PIN) == 0) heartMode = WAITING;
-
-      // --- Peltiers --- //
-      // when in connected mode set peltier target temps LO for syringe pump 1 and HI for syringe pump 0
-      if(peltier0.getTargetTemp() != TEMP_HI) {
-        peltier0.setTargetTemp(TEMP_HI);
-        // and drop the food (via syringe pump)
-        sendSPSerial(0);
-      }
-      if(peltier1.getTargetTemp() != TEMP_LO)
-        peltier1.setTargetTemp(TEMP_LO);
       break;
 
     case PLAY:
@@ -725,7 +727,7 @@ void loop() {
       if(wormTravel) {
         heartMode = MEDITATE;
         beatMillis = loopMillis + (5*beatPeriod);
-      }  
+      }
       // Go to DISCONNECTED mode immediately if contact is lost
       if (digitalRead(CONTACT_PIN) == 0) heartMode = DISCONNECTED;
       break;
@@ -740,6 +742,8 @@ void loop() {
       if (beatMillis < loopMillis) {
         // Set up a time for the next random beat otherwise we get one immediately
         beatMillis = loopMillis + 1200 + 1000 * random(10);
+        if(wormTravel) wormDir = !wormDir; // invert peltier target temperatures
+        wormTravel = false;
         heartMode = WAITING;
       }
       break;
