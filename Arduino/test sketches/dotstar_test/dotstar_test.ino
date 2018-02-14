@@ -58,8 +58,8 @@ void setup() {
 }
 
 void loop() {
-  // scrol thru all the colors
-  setDotstarLEDColors(0, 255);
+//  // scrol thru all the colors
+//    setDotstarLEDColors(0, 255);
 //  delay(5000);
 //  setDotstarLEDColors(1, 255);
 //  delay(5000);
@@ -72,8 +72,9 @@ void loop() {
 //  setDotstarLEDColors(5, 255);
 //  delay(5000);
 //  setDotstarLEDColors(6, 255);
-//  delay(5000);
-//  setDotstarLEDColors(7, 255);
+//    delay(5000);
+//    setDotstarLEDColors(7, 255);
+//    delay(5000);
 
 }
 
