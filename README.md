@@ -1,2 +1,2 @@
 # WormConnect
-Code, circuuts, diagrams, etc for WormConnect project
+Code, circuits, diagrams, etc for WormConnect project
