@@ -8,8 +8,8 @@
 #define TEMP0_SUPPLYPIN 38               // digital pin that will serve as voltage source
 #define TEMP1_SENSORPIN A1               // analog sensor pin
 #define TEMP1_SUPPLYPIN 39               // digital pin that will serve as voltage source
-#define TEMP_HI 20                       // high target temp (in C)
-#define TEMP_LO 14                       // low target temp (in C)
+#define TEMP_HI 25                       // high target temp (in C)
+#define TEMP_LO 14                     // low target temp (in C) 
 
 // === FAN === //
 #define FAN0_OUTPUT_PIN 5                // pwm output pin for fan
@@ -57,8 +57,8 @@ class Peltier {
   // we set the controller to use Conservative Tuning Parameters
   // when we're near Setpoint and more aggressive Tuning
   // Parameters when we're farther away.
-  double aggKp=3.9, aggKi=5, aggKd=1;
-  double consKp=2, consKi=4, consKd=.75; //THESE HAVE BEEN CHANGED
+  double aggKp=4, aggKi=0.25, aggKd=2;
+  double consKp=4, consKi=0.25, consKd=2; //THESE HAVE BEEN CHANGED
   PID *pid;                                      // pointer to PID controller object
 
   public:
@@ -93,7 +93,7 @@ class Peltier {
     if(gap < 5) {
       // we're close to setpoint, use conservative tuning parameters
       pid->SetTunings(consKp, consKi, consKd);
-      fanSpeed = 200;
+      fanSpeed = 100;
     } else {
       // we're far from setpoint, use aggressive tuning parameters
       pid->SetTunings(aggKp, aggKi, aggKd);
