@@ -327,10 +327,10 @@ class Peltier {
 // Peltier 0 is the one to the left of participant 
 // Peltier 1 is to the right of participant
 // one peltier is is made warmer when participant is connected to system & colder when not
-// they toggle back & forth - after worms move to the warm side - that side becomes cold when the next particpant connects to the system
-// (Also food will be dropped (via syringe pumps) on whichever side is being made warmer)
-Peltier peltier0(PID0_OUTPUT_PIN, TEMP0_SENSORPIN, TEMP0_SUPPLYPIN, FAN0_OUTPUT_PIN, TEMP_LO); // left side - cold by default
-Peltier peltier1(PID1_OUTPUT_PIN, TEMP1_SENSORPIN, TEMP1_SUPPLYPIN, FAN1_OUTPUT_PIN, TEMP_HI); // right side - warm by default
+// they toggle back & forth - after worms move to the cold side - that side becomes warm when the next particpant connects to the system
+// (Also food will be dropped (via syringe pumps) on whichever side is being made cold)
+Peltier peltier0(PID0_OUTPUT_PIN, TEMP0_SENSORPIN, TEMP0_SUPPLYPIN, FAN0_OUTPUT_PIN, TEMP_HI); // left side - warm by default
+Peltier peltier1(PID1_OUTPUT_PIN, TEMP1_SENSORPIN, TEMP1_SUPPLYPIN, FAN1_OUTPUT_PIN, TEMP_LO); // right side - cold by default
 
 // --- Peltier serial communication --- //
 void sendPeltierSerial(uint8_t id, double temp) {
