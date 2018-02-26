@@ -8,7 +8,7 @@
 #define TEMP0_SUPPLYPIN 38               // digital pin that will serve as voltage source
 #define TEMP1_SENSORPIN A1               // analog sensor pin
 #define TEMP1_SUPPLYPIN 39               // digital pin that will serve as voltage source
-#define TEMP_HI 25                       // high target temp (in C)
+#define TEMP_HI 22                       // high target temp (in C)
 #define TEMP_LO 14                     // low target temp (in C) 
 
 // === FAN === //
@@ -295,7 +295,7 @@ class Peltier {
 // === PELTIER OBJECTS === //
 // initialize peltier objects
 Peltier peltier0(PID0_OUTPUT_PIN, TEMP0_SENSORPIN, TEMP0_SUPPLYPIN, FAN0_OUTPUT_PIN, TEMP_LO);
-//Peltier peltier1(PID1_OUTPUT_PIN, TEMP1_SENSORPIN, TEMP1_SUPPLYPIN, FAN1_OUTPUT_PIN, TEMP_HI);
+Peltier peltier1(PID1_OUTPUT_PIN, TEMP1_SENSORPIN, TEMP1_SUPPLYPIN, FAN1_OUTPUT_PIN, TEMP_HI);
 
 // ====================================================================================================================== //
 
@@ -310,11 +310,11 @@ void setup() {
   } else {
     Serial.println(F("Peltier module 0 is off! Something went wrong!"));
   }
-//  if(peltier1.getControllerMode() > 0) {
-//    Serial.println(F("Peltier module 1 is on!"));
-//  } else {
-//    Serial.println(F("Peltier module 1 is off! Something went wrong!"));
-//  }
+  if(peltier1.getControllerMode() > 0) {
+    Serial.println(F("Peltier module 1 is on!"));
+  } else {
+    Serial.println(F("Peltier module 1 is off! Something went wrong!"));
+  }
 
 }
 
@@ -323,10 +323,10 @@ void loop() {
     Serial.print(F("Peltier0 temp: "));
     Serial.println(peltier0.getTemp());
   }
-//  if(peltier1.updateController()) {
-//    Serial.print(F("Peltier1 temp: "));
-//    Serial.println(peltier1.getTemp());
-//  }
+  if(peltier1.updateController()) {
+    Serial.print(F("Peltier1 temp: "));
+    Serial.println(peltier1.getTemp());
+  }
 
 }
 

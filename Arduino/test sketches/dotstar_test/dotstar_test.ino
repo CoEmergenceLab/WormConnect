@@ -3,7 +3,7 @@
 
 // ========== DARK-FIELD ILLUMINATOR LIGHTS (ADAFRUIT DOTSTAR LEDs) ========== //
 
-#define NUM_DOTSTAR_LEDS 144        // Number of LEDs we are driving
+#define NUM_DOTSTAR_LEDS 132        // Number of LEDs we are driving
 
 // create a list of colors for the lights
 // we are basically creating an HSV gradient here
