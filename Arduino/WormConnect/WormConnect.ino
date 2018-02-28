@@ -707,12 +707,12 @@ void loop() {
         // set the temp of the peltiers based upon the direction we want the worms to move
         // and drop food via the approriate syringe pump
         if(wormDir == LEFT_RIGHT) {
-          peltier0.setTargetTemp(TEMP_LO);
-          peltier1.setTargetTemp(TEMP_HI);
-          sendSPSerial(1);
-        } else {
           peltier0.setTargetTemp(TEMP_HI);
           peltier1.setTargetTemp(TEMP_LO);
+          sendSPSerial(1);
+        } else {
+          peltier0.setTargetTemp(TEMP_LO);
+          peltier1.setTargetTemp(TEMP_HI);
           sendSPSerial(0);
         }
           
