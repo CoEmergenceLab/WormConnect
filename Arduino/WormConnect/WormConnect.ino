@@ -87,8 +87,8 @@ class Peltier {
   // we set the controller to use Conservative Tuning Parameters
   // when we're near Setpoint and more aggressive Tuning
   // Parameters when we're farther away.
-  double aggKp=3.9, aggKi=0.5, aggKd=1;
-  double consKp=1, consKi=0.05, consKd=0.25;
+  double aggKp=4, aggKi=0.25, aggKd=2;
+  double consKp=4, consKi=0.25, consKd=2; //THESE HAVE BEEN CHANGED
   PID *pid;                                      // pointer to PID controller object
 
   public:
@@ -123,7 +123,7 @@ class Peltier {
     if(gap < 5) {
       // we're close to setpoint, use conservative tuning parameters
       pid->SetTunings(consKp, consKi, consKd);
-      fanSpeed = 200;
+      fanSpeed = 100;
     } else {
       // we're far from setpoint, use aggressive tuning parameters
       pid->SetTunings(aggKp, aggKi, aggKd);
@@ -497,15 +497,15 @@ static const byte binLightPins[NUM_BIN_LIGHTS] = {25,26,27,28,29,30,31,32}; // p
 
 // ========== DARK-FIELD ILLUMINATOR LIGHTS (ADAFRUIT DOTSTAR LEDs) ========== //
 
-#define NUM_DOTSTAR_LEDS 132        // Number of LEDs we are driving
+#define NUM_DOTSTAR_LEDS 128        // Number of LEDs we are driving
 
 // create a list of colors for the lights
 // we are basically creating an HSV gradient here
 #define NUM_DOTSTAR_COLORS 8
 // list of colors (solid colors fading to dark)
-//const uint32_t dotstarColorList[NUM_DOTSTAR_COLORS] = {0xFFFFFF, 0xDFDFDF, 0xBFBFBF, 0x9F9F9F, 0x7F7F7F, 0x5F5F5F, 0x3F3F3F, 0x1F1F1F};
+const uint32_t dotstarColorList[NUM_DOTSTAR_COLORS] = {0xFFFFFF, 0xDFDFDF, 0xBFBFBF, 0x9F9F9F, 0x7F7F7F, 0x5F5F5F, 0x3F3F3F, 0x1F1F1F};
 // red worksbetter for dark-field illumination
-const uint32_t dotstarColorList[NUM_DOTSTAR_COLORS] = {0xFF0000, 0xE50000, 0xCC0000, 0xB20000, 0x990000, 0x7F0000, 0x660000, 0x4C0000};
+//const uint32_t dotstarColorList[NUM_DOTSTAR_COLORS] = {0xFF0000, 0xE50000, 0xCC0000, 0xB20000, 0x990000, 0x7F0000, 0x660000, 0x4C0000};
 
 // Here's how to control the LEDs from any two pins:
 // The below code is for software SPI on pins 8 & 9
