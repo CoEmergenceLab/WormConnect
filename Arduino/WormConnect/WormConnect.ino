@@ -524,6 +524,7 @@ const uint32_t dotstarColorList[NUM_DOTSTAR_COLORS] = {0xFFFFFF, 0xDFDFDF, 0xBFB
 Adafruit_DotStar ledStrip = Adafruit_DotStar(NUM_DOTSTAR_LEDS, DOTSTAR_BGR);
 
 bool DOTSTARS_ON = false;
+uint8_t ds_brightness = 255;
 
 void setDotstarLEDColors(uint8_t colorIndex, uint8_t brightness) {
   // set the brightness
@@ -545,7 +546,7 @@ void setDotstarLEDColors(uint8_t colorIndex, uint8_t brightness) {
   ledStrip.show();
 }
 
-void turnOnDotstars() {
+void turnOnDotstars(uint8_t brightness) {
   // set up the binary communication light pins/relays
   for(byte i=0; i<NUM_BIN_LIGHTS; i++) {
     // the relay board's input controls are Active LOW, meaning that setting a pin LOW (0) turns them ON.
@@ -560,7 +561,7 @@ void turnOnDotstars() {
   ledStrip.clear();                  // Set all pixel data to zero
   ledStrip.show();                   // Turn all LEDs off ASAP
   // initiaize dotstars at full white/full brightness
-  setDotstarLEDColors(0, 255);
+  setDotstarLEDColors(0, brightness);
 }
 
 // ====================================================================================================================== //
@@ -592,7 +593,7 @@ void serialFlush(){
 
 void setup() {
   // set up the binary communication light pins/relays
-  turnOnDotstars();
+  turnOnDotstars(ds_brightness);
   
   // initialize serial port connection at 57600 bps and wait for port to open:
   Serial.begin(57600);
@@ -630,7 +631,7 @@ void setup() {
 void loop() {
   // turn on Dotstar LEDS if they aren't already on
   if(!DOTSTARS_ON) {
-    turnOnDotstars();
+    turnOnDotstars(ds_brightness);
     DOTSTARS_ON = true;
   }
   
@@ -645,6 +646,7 @@ void loop() {
       } else if(serialDataBuffer[0] == 'd') {
         // set the dotstar leds color & brightness
         setDotstarLEDColors(serialDataBuffer[1], serialDataBuffer[2]);
+        ds_brightness = serialDataBuffer[2];
       } else {
         // turn on/off the binary communication lights
         // loop thru the message to get the pin numbers and their states
