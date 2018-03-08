@@ -523,6 +523,8 @@ const uint32_t dotstarColorList[NUM_DOTSTAR_COLORS] = {0xFFFFFF, 0xDFDFDF, 0xBFB
 // (Arduino Uno & Pro/Pro Mini = pin 11 for data, 13 for clock, Mega 2560 = pin 51 for data, 52 for clock; other boards may be different).
 Adafruit_DotStar ledStrip = Adafruit_DotStar(NUM_DOTSTAR_LEDS, DOTSTAR_BGR);
 
+bool DOTSTARS_ON = false;
+
 void setDotstarLEDColors(uint8_t colorIndex, uint8_t brightness) {
   // set the brightness
   ledStrip.setBrightness(brightness);
@@ -541,6 +543,24 @@ void setDotstarLEDColors(uint8_t colorIndex, uint8_t brightness) {
   }
   // show the updated pixels
   ledStrip.show();
+}
+
+void turnOnDotstars() {
+  // set up the binary communication light pins/relays
+  for(byte i=0; i<NUM_BIN_LIGHTS; i++) {
+    // the relay board's input controls are Active LOW, meaning that setting a pin LOW (0) turns them ON.
+    // To assure that no relays activate at Reset or Power-up we want to set the pins to HIGH (1)
+    digitalWrite(binLightPins[i], RELAY_OFF); // RELAY_OFF = HIGH (1)
+    // set all the binary light pins to outputs
+    pinMode(binLightPins[i], OUTPUT);
+  }
+
+  // Dotstar LEDs for dark-field illuminator
+  ledStrip.begin();                  // Initialize LED pins for output
+  ledStrip.clear();                  // Set all pixel data to zero
+  ledStrip.show();                   // Turn all LEDs off ASAP
+  // initiaize dotstars at full white/full brightness
+  setDotstarLEDColors(0, 255);
 }
 
 // ====================================================================================================================== //
@@ -572,20 +592,7 @@ void serialFlush(){
 
 void setup() {
   // set up the binary communication light pins/relays
-  for(byte i=0; i<NUM_BIN_LIGHTS; i++) {
-    // the relay board's input controls are Active LOW, meaning that setting a pin LOW (0) turns them ON.
-    // To assure that no relays activate at Reset or Power-up we want to set the pins to HIGH (1)
-    digitalWrite(binLightPins[i], RELAY_OFF); // RELAY_OFF = HIGH (1)
-    // set all the binary light pins to outputs
-    pinMode(binLightPins[i], OUTPUT);
-  }
-
-  // Dotstar LEDs for dark-field illuminator
-  ledStrip.begin();                  // Initialize LED pins for output
-  ledStrip.clear();                  // Set all pixel data to zero
-  ledStrip.show();                   // Turn all LEDs off ASAP
-  // initiaize dotstars at full white/full brightness
-  setDotstarLEDColors(0, 255);
+  turnOnDotstars();
   
   // initialize serial port connection at 57600 bps and wait for port to open:
   Serial.begin(57600);
@@ -621,6 +628,12 @@ void setup() {
 } // end setup()
 
 void loop() {
+  // turn on Dotstar LEDS if they aren't already on
+  if(!DOTSTARS_ON) {
+    turnOnDotstars();
+    DOTSTARS_ON = true;
+  }
+  
   // --- Read from the Serial port --- //
   // if we get a valid byte on the serial port:
   while(Serial.available()) {
