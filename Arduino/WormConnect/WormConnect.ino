@@ -497,7 +497,7 @@ static const byte binLightPins[NUM_BIN_LIGHTS] = {25,26,27,28,29,30,31,32}; // p
 
 // ========== DARK-FIELD ILLUMINATOR LIGHTS (ADAFRUIT DOTSTAR LEDs) ========== //
 
-#define NUM_DOTSTAR_LEDS 128        // Number of LEDs we are driving
+#define NUM_DOTSTAR_LEDS 124        // Number of LEDs we are driving
 
 // create a list of colors for the lights
 // we are basically creating an HSV gradient here
