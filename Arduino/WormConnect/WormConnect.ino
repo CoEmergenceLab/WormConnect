@@ -123,11 +123,13 @@ class Peltier {
     if(gap < 5) {
       // we're close to setpoint, use conservative tuning parameters
       pid->SetTunings(consKp, consKi, consKd);
-      fanSpeed = 100;
+      //fanSpeed = 100;
+      fanSpeed = 200;
     } else {
       // we're far from setpoint, use aggressive tuning parameters
       pid->SetTunings(aggKp, aggKi, aggKd);
-      fanSpeed = 210;
+      //fanSpeed = 210;
+      fanSpeed = 255;
     }
     
     bool x = pid->Compute();
