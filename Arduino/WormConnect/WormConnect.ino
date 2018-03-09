@@ -526,7 +526,7 @@ const uint32_t dotstarColorList[NUM_DOTSTAR_COLORS] = {0xFFFFFF, 0xDFDFDF, 0xBFB
 Adafruit_DotStar ledStrip = Adafruit_DotStar(NUM_DOTSTAR_LEDS, DOTSTAR_BGR);
 
 bool DOTSTARS_ON = false;
-uint8_t ds_brightness = 255;
+uint8_t ds_brightness = 200;
 
 void setDotstarLEDColors(uint8_t colorIndex, uint8_t brightness) {
   // set the brightness
