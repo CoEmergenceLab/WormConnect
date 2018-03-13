@@ -3,7 +3,7 @@
 
 // ========== DARK-FIELD ILLUMINATOR LIGHTS (ADAFRUIT DOTSTAR LEDs) ========== //
 
-#define NUM_DOTSTAR_LEDS 132        // Number of LEDs we are driving
+#define NUM_DOTSTAR_LEDS 30        // Number of LEDs we are driving
 
 // create a list of colors for the lights
 // we are basically creating an HSV gradient here
@@ -54,12 +54,12 @@ void setup() {
   ledStrip.clear();                  // Set all pixel data to zero
   ledStrip.show();                   // Turn all LEDs off ASAP
   // initiaize dotstars at full white/full brightness
-  setDotstarLEDColors(0, 255);
+  setDotstarLEDColors(7, 255);
 }
 
 void loop() {
 //  // scrol thru all the colors
-//  setDotstarLEDColors(0, 255);
+  setDotstarLEDColors(0, 255);
 //  delay(5000);
 //  setDotstarLEDColors(1, 255);
 //  delay(5000);
